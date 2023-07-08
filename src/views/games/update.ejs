@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- head -->
+  <%- include('../partials/head.ejs', {title: 'Update game'}) %>
+
+  <body>
+      <%- include('../partials/header.ejs') %>
+
+    <main>
+      <form action="/games/update/<%= game.id %>?_method=PUT" method="post" class="container" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input type="text" class="form-control" id="title" name="title" aria-describedby="emailHelp" value="<%= game.title %>">
+        </div>
+
+        <div class="input-group mb-3">
+          <img width="20%" src="<%= game.thumbnail %>">
+          <input type="file" class="form-control" id="thumbnail" name="thumbnail">
+          <label class="input-group-text" for="thumbnail">Upload</label>
+        </div>
+
+        <div class="input-group mb-3">
+          <label class="input-group-text" for="genre">Genres</label>
+          <select class="form-select" name='genre' id="genre">
+            <option selected value="<%= game.genre %>"><%= game.genre %></option>
+            <option value="Strategy">Strategy</option>
+            <option value="MMORPG">MMORPG</option>
+            <option value="Action RPG">Action RPG</option>
+          </select>
+        </div>
+       
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>

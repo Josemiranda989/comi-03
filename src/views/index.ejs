@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- head -->
+  <%- include('./partials/head.ejs', {title:"Games Store Index"}) %>
+
+  <body>
+      <%- include('./partials/header.ejs') %>
+
+    <main>
+
+      <% games.forEach(game => { %>
+      <div class="card" style="width: 18rem;">
+        <img src="<%= game.thumbnail %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <a href="/games/detail/<%= game.id %>"><h5 class="card-title"><%= game.title %></h5></a>
+          <p class="card-text"><%= game.genre %></p>
+          <a href="#" class="btn btn-primary">Update</a>
+        </div>
+      </div>
+      <% }) %>
+      
+    </main>
+
+    <%- include('./partials/footer.ejs') %>
+  </body>
+</html>

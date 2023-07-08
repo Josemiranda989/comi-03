@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- head -->
+  <%- include('../partials/head.ejs', {title: 'Detail'}) %>
+
+  <body>
+      <%- include('../partials/header.ejs') %>
+
+    <main>
+      <div class="card" style="width: 18rem;">
+        <img src="<%= game.thumbnail %>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= game.title %></h5>
+          <p class="card-text"><%= game.genre %></p>
+          <a href="/games/update/<%= game.id %>" class="btn btn-primary">Update</a>
+          <form action="/games/delete/<%= game.id %>?_method=DELETE" method="post">
+          <button type="submit" class="btn btn-warning">Delete</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <%- include('../partials/footer.ejs') %>
+  </body>
+</html>
