@@ -9,6 +9,7 @@ const mainController = {
     res.render("index", {games});
   },
   about: function (req, res) {
+    
     res.render("about");
   },
 };

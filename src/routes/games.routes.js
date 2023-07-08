@@ -4,7 +4,7 @@ const gamesController = require("../controllers/games.controllers");
 const multer = require("multer");
 const path = require("path");
 
-
+/* configuración del almacenamiento de multer */
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, path.join(__dirname,'../../public/img'));
@@ -18,7 +18,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-
+/* Detalle de juego */
 router.get("/detail/:id", gamesController.detail);
 
 /* Form create */
